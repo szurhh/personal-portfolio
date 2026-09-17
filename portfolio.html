@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ad Sarah Fortuito — Civil Engineer & Builder</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,700;9..144,900&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+
+  :root{
+    --bg: #14120D;
+    --panel: #1D1A13;
+    --panel-2: #23261F;
+    --line: #3B3627;
+    --ink: #F4EFE4;
+    --ink-soft: #A79E8B;
+    --gold: #C9A227;
+    --gold-soft: #8A7530;
+    --sage: #5C6B52;
+
+    --serif: 'Fraunces', serif;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --mono: 'IBM Plex Mono', ui-monospace, monospace;
+  }
+
+  *{ box-sizing: border-box; margin:0; padding:0; }
+  html{ scroll-behavior: smooth; }
+
+  body{
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    line-height: 1.65;
+  }
+
+  a{ color: inherit; }
+  a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible{
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
+  }
+
+  .wrap{ max-width: 1120px; margin: 0 auto; padding: 0 1.75rem; }
+  section{ padding: 6rem 0; }
+  hr.rule{ border: none; border-top: 1px solid var(--line); }
+
+  .eyebrow{
+    display:flex; align-items:center; gap: 0.9rem;
+    font-family: var(--mono); font-size: 0.78rem; color: var(--gold);
+    margin-bottom: 0.9rem;
+  }
+  .eyebrow .num{ color: var(--ink-soft); }
+  .eyebrow::after{ content:''; flex:1; height:1px; background: var(--line); }
+
+  h2.head{
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: clamp(1.7rem, 3.2vw, 2.4rem);
+    max-width: 26ch;
+    margin-bottom: 2.75rem;
+  }
+  h2.head em{ font-style: italic; color: var(--gold); }
+
+  /* NAV */
+  header.top{
+    position: sticky; top:0; z-index: 30;
+    background: rgba(20,18,13,0.92);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--line);
+  }
+  nav{ display:flex; justify-content: space-between; align-items:center; padding: 1.2rem 0; }
+  .name{ font-family: var(--serif); font-weight: 600; font-size: 1.15rem; letter-spacing: 0.01em; }
+  .nav-links{ display:flex; gap: 2.1rem; list-style:none; }
+  .nav-links a{ text-decoration:none; font-size: 0.9rem; border-bottom: 1px solid transparent; padding-bottom: 2px; }
+  .nav-links a:hover{ border-bottom-color: var(--gold); }
+
+  /* HERO */
+  .hero{
+    position: relative;
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 3rem;
+    align-items: center;
+    padding: 5rem 0 4.5rem;
+    overflow: hidden;
+  }
+  .hero-plan{
+    position: absolute;
+    right: -60px; top: -40px;
+    width: 480px; height: 480px;
+    opacity: 0.16;
+    pointer-events: none;
+  }
+  .hero .kicker{
+    font-family: var(--mono); font-size: 0.8rem; color: var(--gold);
+    letter-spacing: 0.02em; margin-bottom: 1.2rem; display:block;
+  }
+  .hero h1{
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: clamp(2.4rem, 5.4vw, 4.1rem);
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    max-width: 14ch;
+    margin-bottom: 1.6rem;
+  }
+  .hero h1 em{ font-style: italic; font-weight: 500; color: var(--gold); }
+  .hero p{ color: var(--ink-soft); max-width: 42ch; font-size: 1.05rem; margin-bottom: 2.1rem; }
+  .cta-row{ display:flex; gap: 1rem; flex-wrap: wrap; }
+  .btn{
+    display:inline-flex; align-items:center; gap:0.5rem;
+    padding: 0.85rem 1.5rem;
+    font-family: var(--sans); font-weight: 500; font-size: 0.95rem;
+    text-decoration:none; border: 1px solid var(--line); cursor:pointer;
+  }
+  .btn.solid{ background: var(--gold); color: #14120D; border-color: var(--gold); }
+  .btn.solid:hover{ background: #b28f22; }
+  .btn.ghost{ color: var(--ink); background: transparent; }
+  .btn.ghost:hover{ border-color: var(--ink-soft); }
+
+  .photo-frame{
+    position: relative;
+    border: 1px solid var(--line);
+    padding: 0.6rem;
+    z-index: 1;
+  }
+  .photo-frame img{ display:block; width:100%; height:auto; filter: grayscale(0.1) contrast(1.03) sepia(0.06); }
+  .photo-frame .tag{
+    position:absolute; bottom: 1rem; left: 1rem;
+    background: rgba(20,18,13,0.85);
+    font-family: var(--mono); font-size: 0.68rem; color: var(--gold);
+    padding: 0.35rem 0.6rem; border: 1px solid var(--gold-soft);
+  }
+
+  /* ICON STRIP */
+  .strip{
+    display:flex; flex-wrap:wrap; gap: 2.2rem;
+    padding: 1.8rem 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .strip-item{ display:flex; align-items:center; gap: 0.6rem; font-size: 0.9rem; color: var(--ink-soft); }
+  .strip-item svg{ flex-shrink:0; width:18px; height:18px; stroke: var(--gold); }
+
+  /* FEATURED PROJECT */
+  .case{
+    background: var(--panel);
+    border: 1px solid var(--line);
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .case-top{ display:flex; justify-content: space-between; align-items:flex-start; gap:1rem; flex-wrap: wrap; margin-bottom: 1.4rem; }
+  .case h3{ font-family: var(--serif); font-weight: 600; font-size: 1.7rem; }
+  .status{
+    font-family: var(--mono); font-size: 0.72rem; color: var(--sage);
+    border: 1px solid var(--sage); padding: 0.28rem 0.65rem;
+    white-space: nowrap;
+  }
+  .case p.lede{ color: var(--ink-soft); max-width: 62ch; margin-bottom: 2.2rem; }
+
+  .highlights{
+    display:grid; grid-template-columns: repeat(2, 1fr); gap: 1rem 2rem;
+    margin-bottom: 2.2rem;
+  }
+  .highlight{ display:flex; gap: 0.75rem; align-items:flex-start; font-size: 0.92rem; color: var(--ink-soft); }
+  .highlight svg{ flex-shrink:0; width:18px; height:18px; stroke: var(--gold); margin-top: 0.15rem; }
+  .highlight strong{ color: var(--ink); font-weight: 500; display:block; }
+
+  .case-grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 2rem; }
+  .case-grid dt{ font-family: var(--mono); font-size: 0.7rem; color: var(--gold); margin-bottom: 0.4rem; }
+  .case-grid dd{ color: var(--ink-soft); font-size: 0.9rem; }
+  .tags{ display:flex; flex-wrap:wrap; gap: 0.5rem; }
+  .tag{ font-family: var(--mono); font-size: 0.7rem; color: var(--ink-soft); border: 1px solid var(--line); padding: 0.3rem 0.6rem; }
+
+  @media (max-width: 780px){ .case-grid, .highlights{ grid-template-columns: 1fr; } }
+
+  /* SAMPLE PROJECT */
+  .thesis-render{ border: 1px solid var(--line); margin-bottom: 1.6rem; }
+  .thesis-render img{ display:block; width:100%; height:auto; }
+  .thesis-meta{ display:grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-bottom: 2.5rem; font-size: 0.9rem; color: var(--ink-soft); }
+  .thesis-meta .label{ display:block; font-family: var(--mono); font-size: 0.68rem; color: var(--gold); margin-bottom: 0.35rem; }
+  @media (max-width: 780px){ .thesis-meta{ grid-template-columns: 1fr 1fr; } }
+
+  .plan-grid{ display:grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+  .plan-tile{ border: 1px solid var(--line); }
+  .plan-tile img{ display:block; width:100%; height: 220px; object-fit: contain; object-position: center; background: var(--panel-2); padding: 0.4rem; }
+  .plan-label{ font-family: var(--mono); font-size: 0.7rem; color: var(--ink-soft); padding: 0.6rem 0.7rem; border-top: 1px solid var(--line); }
+  .plan-tile.empty{ height: 190px; display:flex; align-items:center; justify-content:center; background: var(--panel-2); }
+  .plan-placeholder{ font-family: var(--mono); font-size: 0.74rem; color: var(--ink-soft); text-align:center; line-height: 1.6; }
+  .plan-placeholder span{ color: var(--gold-soft); }
+  @media (max-width: 860px){ .plan-grid{ grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 480px){ .plan-grid{ grid-template-columns: 1fr; } }
+
+  .studio-gallery{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+  .studio-tile{ border: 1px solid var(--line); }
+  .studio-tile img{ display:block; width:100%; height: 220px; object-fit: cover; }
+  .studio-tile .cap{ font-family: var(--mono); font-size: 0.72rem; color: var(--ink-soft); padding: 0.65rem 0.85rem; border-top: 1px solid var(--line); }
+  @media (max-width: 860px){ .studio-gallery{ grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 560px){ .studio-gallery{ grid-template-columns: 1fr; } }
+
+  .video-grid{ display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
+  .video-tile{ border: 1px solid var(--line); background: var(--panel-2); }
+  .video-tile video{ display:block; width:100%; height: 260px; object-fit: contain; background: var(--panel-2); }
+  .video-tile .cap{ font-family: var(--mono); font-size: 0.72rem; color: var(--ink-soft); padding: 0.65rem 0.85rem; border-top: 1px solid var(--line); background: var(--panel); }
+
+  /* PROCESS */
+  .process{ display:grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+  .p-step{ position: relative; padding: 0 1.4rem 0 0; }
+  .p-step .p-num{ font-family: var(--serif); font-size: 2.2rem; color: var(--gold-soft); margin-bottom: 0.8rem; }
+  .p-step h4{ font-family: var(--serif); font-weight: 500; font-size: 1.1rem; margin-bottom: 0.5rem; }
+  .p-step p{ color: var(--ink-soft); font-size: 0.88rem; }
+  .p-step:not(:last-child)::after{
+    content: '→'; position:absolute; right: -0.3rem; top: 0; color: var(--line); font-size: 1.4rem;
+  }
+  @media (max-width: 860px){
+    .process{ grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .p-step:nth-child(2)::after{ content:''; }
+    .p-step::after{ display:none; }
+  }
+  @media (max-width: 520px){ .process{ grid-template-columns: 1fr; } }
+
+  /* SKILLS - magazine grid */
+  .skill-cols{ display:grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+  .skill-col{ border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 1.75rem; }
+  .skill-col .col-label{ font-family: var(--mono); font-size: 0.75rem; color: var(--gold); margin-bottom: 1rem; }
+  .skill-col ul{ list-style:none; }
+  .skill-col li{ padding: 0.5rem 0; font-size: 0.94rem; color: var(--ink-soft); }
+  .skill-col li strong{ color: var(--ink); font-weight: 500; }
+  @media (max-width: 780px){ .skill-cols{ grid-template-columns: 1fr; } }
+
+  /* PORTFOLIO GRID */
+  .grid-2{ display:grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+  .grid-tile{ border: 1px solid var(--line); }
+  .grid-tile .swatch{
+    aspect-ratio: 4/3;
+    background: var(--panel-2);
+    display:flex; align-items:center; justify-content:center;
+    font-family: var(--mono); font-size: 0.78rem; color: var(--ink-soft);
+    background-image: repeating-linear-gradient(45deg, transparent, transparent 9px, rgba(201,162,39,0.06) 9px, rgba(201,162,39,0.06) 10px);
+    text-align: center; padding: 1rem;
+  }
+  .grid-tile .meta{ padding: 1.1rem 1.2rem 1.4rem; }
+  .grid-tile h4{ font-family: var(--serif); font-weight: 500; font-size: 1.15rem; margin-bottom: 0.3rem; }
+  .grid-tile .sub{ font-family: var(--mono); font-size: 0.75rem; color: var(--gold); }
+  @media (max-width: 700px){ .grid-2{ grid-template-columns: 1fr; } }
+
+  /* TIMELINE */
+  .timeline{ border-left: 1px solid var(--line); padding-left: 1.9rem; }
+  .t-item{ margin-bottom: 2.1rem; position: relative; }
+  .t-item:last-child{ margin-bottom: 0; }
+  .t-item::before{ content:''; position:absolute; left:-2.06rem; top: 0.4rem; width: 8px; height:8px; background: var(--gold); }
+  .t-item .role{ font-family: var(--serif); font-size: 1.1rem; margin-bottom: 0.2rem; }
+  .t-item .org{ font-family: var(--mono); font-size: 0.72rem; color: var(--gold); margin-bottom: 0.5rem; }
+  .t-item p{ color: var(--ink-soft); font-size: 0.92rem; max-width: 60ch; }
+
+  /* EDUCATION */
+  .edu-row{ display:flex; justify-content: space-between; gap: 1rem; padding: 1.15rem 0; border-bottom: 1px solid var(--line); flex-wrap: wrap; }
+  .edu-row:last-child{ border-bottom: none; }
+  .edu-row .school{ font-family: var(--serif); font-size: 1.05rem; }
+  .edu-row .detail{ color: var(--ink-soft); font-size: 0.9rem; }
+
+  /* WHY / CONTACT */
+  .why-grid{ display:grid; grid-template-columns: repeat(2, 1fr); gap: 0.9rem 2rem; margin-bottom: 3rem; }
+  .why-item{ display:flex; gap: 0.7rem; align-items:flex-start; font-size: 0.92rem; color: var(--ink-soft); }
+  .why-item svg{ flex-shrink:0; width:16px; height:16px; stroke: var(--gold); margin-top:0.2rem; }
+  @media (max-width: 640px){ .why-grid{ grid-template-columns: 1fr; } }
+
+  .contact-grid{ display:grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+  .contact-info p{ color: var(--ink-soft); margin-bottom: 0.6rem; font-size: 0.98rem; }
+  .contact-info .label{ font-family: var(--mono); font-size: 0.72rem; color: var(--gold); }
+  .field{ margin-bottom: 1.3rem; }
+  .field label{ display:block; font-family: var(--mono); font-size: 0.72rem; color: var(--ink-soft); margin-bottom: 0.4rem; }
+  .field input, .field textarea{
+    width:100%; background: transparent; border:none; border-bottom: 1px solid var(--line);
+    padding: 0.5rem 0.1rem; color: var(--ink); font-family: var(--sans); font-size: 0.98rem;
+  }
+  .field input:focus, .field textarea:focus{ border-bottom-color: var(--gold); }
+  @media (max-width: 720px){ .contact-grid{ grid-template-columns: 1fr; } }
+
+  footer{ border-top: 1px solid var(--line); padding: 2rem 0; }
+  footer .wrap{ display:flex; justify-content: space-between; flex-wrap: wrap; gap: 0.6rem; color: var(--ink-soft); font-size: 0.85rem; }
+
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <nav>
+      <div class="name">Ad Sarah Fortuito</div>
+      <ul class="nav-links">
+        <li><a href="#thesis">Projects</a></li>
+        <li><a href="#studio">Studio</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#showcase">Video Editing</a></li>
+        <li><a href="#ugc">Content Photo</a></li>
+        <li><a href="#background">Background</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <div class="wrap">
+    <section class="hero">
+      <svg class="hero-plan" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <g fill="none" stroke="#C9A227" stroke-width="1.3">
+          <rect x="30" y="30" width="340" height="300"/>
+          <line x1="30" y1="150" x2="220" y2="150"/>
+          <line x1="220" y1="30" x2="220" y2="330"/>
+          <line x1="220" y1="230" x2="370" y2="230"/>
+          <circle cx="290" cy="90" r="26"/>
+          <line x1="30" y1="360" x2="370" y2="360"/>
+          <line x1="30" y1="352" x2="30" y2="368"/>
+          <line x1="370" y1="352" x2="370" y2="368"/>
+        </g>
+      </svg>
+      <div>
+        <span class="kicker">Civil Engineer · Full-Stack Builder · Content Creator · Tutor</span>
+        <h1>Engineer by training. <em>Adaptable</em> by design.</h1>
+        <p>Structural drawings, full-stack code, video edits, social media campaigns, and math tutoring — four fields, one person who picks up new work fast and delivers in all of them.</p>
+        <div class="cta-row">
+          <a href="#work" class="btn solid">View the project</a>
+          <a href="mailto:adsarahf@gmail.com" class="btn ghost">Get in touch</a>
+        </div>
+      </div>
+      <div class="photo-frame">
+        <img src="2x2.jpg" alt="Portrait of Ad Sarah Fortuito">
+        <span class="tag">CE · SUSC</span>
+      </div>
+    </section>
+
+    <div class="strip">
+      <div class="strip-item"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/></svg>Civil engineering</div>
+      <div class="strip-item"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M4 20V10M12 20V4M20 20v-7"/></svg>Full-stack development</div>
+      <div class="strip-item"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M3 7h13v10H3z"/><path d="M16 10l5-3v10l-5-3"/></svg>Video editing</div>
+      <div class="strip-item"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="M8.2 10.9l7.6-3.8M8.2 13.1l7.6 3.8"/></svg>Social media management</div>
+      <div class="strip-item"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V5H6.5A2.5 2.5 0 0 0 4 7.5v12z"/><path d="M8 8h8M8 11h8"/></svg>Math tutoring</div>
+    </div>
+  </div>
+
+  <!-- SAMPLE PROJECT -->
+  <div class="wrap">
+    <section id="thesis">
+      <div class="eyebrow"><span class="num">01</span><span>Sample Project</span></div>
+      <h2 class="head">A three-storey building, documented from render to <em>working drawings</em>.</h2>
+
+      <div class="thesis-render">
+        <img src="render.jpg" alt="Exterior render of a three-storey residential and commercial building with a landscaped courtyard and palm trees">
+      </div>
+
+      <div class="thesis-meta">
+        <div><span class="label">Project</span>Three-Storey Residential/Commercial Building</div>
+        <div><span class="label">Client</span>Mrs. Cristina R. Fajardo</div>
+        <div><span class="label">Team</span>Rojas, Fortuito, Deguit, Balbon — JYCA Construction</div>
+        <div><span class="label">Date</span>November 2024</div>
+      </div>
+
+      <div class="plan-grid">
+        <div class="plan-tile">
+          <img src="floorplan.jpg" alt="Architectural drawing sheet showing first floor, second and third floor, and roof deck plans with dimensions">
+          <div class="plan-label">Architectural — Floor Plans</div>
+        </div>
+        <div class="plan-tile">
+          <img src="structural.jpg" alt="Structural framing plan sheet showing foundation plan and second and third floor framing plan with column and beam labels">
+          <div class="plan-label">Structural — Framing Plan (S-01)</div>
+        </div>
+        <div class="plan-tile">
+          <img src="plumbing.jpg" alt="Plumbing water line layout sheet showing first floor and second and third floor water line plans with plumbing symbol legend">
+          <div class="plan-label">Plumbing — Water Line Layout (P-01)</div>
+        </div>
+        <div class="plan-tile">
+          <img src="electrical.jpg" alt="Electrical lighting layout sheet showing first floor and second and third floor lighting plans with electrical symbol legend">
+          <div class="plan-label">Electrical — Lighting Layout (EL-01)</div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <hr class="rule">
+
+  <!-- MINI STUDIO -->
+  <div class="wrap">
+    <section id="studio">
+      <div class="eyebrow"><span class="num">02</span><span>Interior Design</span></div>
+      <h2 class="head">A mini studio for rent — designed room by room, for photo and video shoots.</h2>
+
+      <p style="color: var(--ink-soft); max-width: 62ch; margin-bottom: 2rem;">A rentable content studio concept: a changing area for clients to get camera-ready, a lounge to wait and brief between setups, and a clean cyclorama wall for shooting. Visualized end to end in D5 and Lumion — the same rendering skillset behind the building above, aimed at a different kind of client.</p>
+
+      <div class="thesis-meta" style="margin-bottom: 2rem;">
+        <div><span class="label">Type</span>Rental studio — interior design concept</div>
+        <div><span class="label">Tools</span>D5 Render, Lumion</div>
+        <div><span class="label">Rooms</span>3 — changing, lounge, cyclorama</div>
+      </div>
+
+      <div class="studio-gallery">
+        <div class="studio-tile">
+          <img src="makeup_station-changing_room.jpg" alt="Makeup station and changing room with a lit vanity mirror, director's chair, curtained changing area, and a black shelving unit styled with books and a coffee station">
+          <div class="cap">Makeup station &amp; changing room</div>
+        </div>
+        <div class="studio-tile">
+          <img src="lounge_area.jpg" alt="Lounge and waiting area with a grey sofa, curved accent chairs, an organic-shaped coffee table, and a view into the white cyclorama beyond">
+          <div class="cap">Lounge &amp; waiting area</div>
+        </div>
+        <div class="studio-tile">
+          <img src="cyclorama.jpg" alt="Empty white cyclorama photo and video backdrop wall with studio lighting stands and an overhead lighting grid">
+          <div class="cap">Cyclorama backdrop</div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <hr class="rule">
+
+  <!-- PROCESS -->
+  <div class="wrap">
+    <section id="process">
+      <div class="eyebrow"><span class="num">03</span><span>How I Work</span></div>
+      <h2 class="head">One process, whether it's a building or a build.</h2>
+
+      <div class="process">
+        <div class="p-step"><div class="p-num">01</div><h4>Discover</h4><p>Understand the real workflow and who it's actually failing.</p></div>
+        <div class="p-step"><div class="p-num">02</div><h4>Design</h4><p>Sketch the data model and the screens before writing code.</p></div>
+        <div class="p-step"><div class="p-num">03</div><h4>Build</h4><p>Ship the core workflow first, then layer in polish.</p></div>
+        <div class="p-step"><div class="p-num">04</div><h4>Deliver</h4><p>Document it clearly enough that someone else could pick it up.</p></div>
+      </div>
+    </section>
+  </div>
+
+  <hr class="rule">
+
+  <!-- SKILLS -->
+  <div class="wrap">
+    <section id="skills">
+      <div class="eyebrow"><span class="num">04</span><span>Skills</span></div>
+      <h2 class="head">The platforms I work in, organized by role.</h2>
+
+      <div class="skill-cols">
+        <div class="skill-col">
+          <div class="col-label">Engineering design</div>
+          <ul>
+            <li><strong>AutoCAD</strong> — drafting</li>
+            <li><strong>Revit</strong> — building modeling</li>
+            <li><strong>D5 Render</strong> — visualization</li>
+            <li><strong>Lumion</strong> — visualization</li>
+          </ul>
+        </div>
+        <div class="skill-col">
+          <div class="col-label">Project management</div>
+          <ul>
+            <li><strong>MS Project</strong> — scheduling</li>
+            <li><strong>Notion</strong> — documentation &amp; tracking</li>
+            <li><strong>GitHub</strong> — version control</li>
+            <li><strong>Calendly</strong> — scheduling</li>
+            <li><strong>Google Workspace</strong> — docs &amp; sheets</li>
+          </ul>
+        </div>
+        <div class="skill-col">
+          <div class="col-label">Communication</div>
+          <ul>
+            <li><strong>WhatsApp</strong> — client messaging</li>
+            <li><strong>Viber</strong> — client messaging</li>
+            <li><strong>Google Meet</strong> — video calls</li>
+            <li><strong>Zoom</strong> — video calls</li>
+            <li><strong>Discord</strong> — team coordination</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <hr class="rule">
+
+  <!-- VIDEO EDITING -->
+  <div class="wrap">
+    <section id="showcase">
+      <div class="eyebrow"><span class="num">05</span><span>Video Editing</span></div>
+      <h2 class="head">Personal edits — and promotional videos on request.</h2>
+      <p style="color: var(--ink-soft); max-width: 62ch; margin-bottom: 2.25rem;">These are personal edits, made for practice and for fun. I also produce promotional videos for brands and small businesses on request — reach out and I can shoot and edit on my own equipment.</p>
+
+      <div class="video-grid">
+        <div class="video-tile">
+          <video controls preload="none" poster="gingoog_poster.jpg"><source src="gingoog.mp4" type="video/mp4"></video>
+          <div class="cap">Golden-hour portrait edit</div>
+        </div>
+        <div class="video-tile">
+          <video controls preload="none" poster="night_walk_poster.jpg"><source src="night_walk.mp4" type="video/mp4"></video>
+          <div class="cap">City night-walk edit</div>
+        </div>
+        <div class="video-tile">
+          <video controls preload="none" poster="beach_edit_poster.jpg"><source src="beach_edit.mp4" type="video/mp4"></video>
+          <div class="cap">Beach cinematic music-sync edit</div>
+        </div>
+        <div class="video-tile">
+          <video controls preload="none" poster="ad_reel_poster.jpg"><source src="ad_reel.mp4" type="video/mp4"></video>
+          <div class="cap">Travel vlog reel</div>
+        </div>
+        <div class="video-tile">
+          <video controls preload="none" poster="promo_video_poster.jpg"><source src="promo_video.mp4" type="video/mp4"></video>
+          <div class="cap">Personal promo-style video</div>
+        </div>
+      </div>
+
+      <p style="color: var(--ink-soft); font-size: 0.9rem; margin-top: 1.5rem;">Also designed: PICE-SUSC publicity materials and social posts in Canva.</p>
+    </section>
+  </div>
+
+  <hr class="rule">
+
+  <!-- UGC CONTENT PHOTOGRAPHY -->
+  <div class="wrap">
+    <section id="ugc">
+      <div class="eyebrow"><span class="num">06</span><span>Content Photography</span></div>
+      <h2 class="head">UGC-style content for brand activations.</h2>
+      <p style="color: var(--ink-soft); max-width: 62ch; margin-bottom: 2rem;">UGC (user-generated content) photography — candid, brand-ready shots built for a company's own social feed and ads, shot at product activations and events rather than in a studio.</p>
+
+      <div class="studio-gallery">
+        <div class="studio-tile">
+          <img src="ugc_15.jpg" alt="Behind-the-scenes shot of a person preparing matcha with a bamboo whisk at a Mori Matcha brand activation">
+          <div class="cap">Behind-the-scenes — Mori Matcha activation</div>
+        </div>
+        <div class="studio-tile">
+          <img src="ugc_119.jpg" alt="Close-up product detail shot of a Mori Matcha branded tumbler being held outdoors">
+          <div class="cap">Product detail — Mori Matcha tumbler</div>
+        </div>
+        <div class="studio-tile">
+          <img src="ugc_DSC05286.jpg" alt="Lifestyle product shot of a hand reaching for an iced layered matcha drink in a Bukid branded cup">
+          <div class="cap">Product lifestyle — Bukid iced matcha</div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <hr class="rule">
+
+  <!-- BACKGROUND -->
+  <div class="wrap">
+    <section id="background">
+      <div class="eyebrow"><span class="num">07</span><span>Background</span></div>
+      <h2 class="head">Leadership, teaching, and community.</h2>
+
+      <div class="timeline">
+        <div class="t-item">
+          <div class="role">External Affairs Chairperson</div>
+          <div class="org">PICE — SUSC, S.Y. 2022–2023</div>
+          <p>Managed official social accounts and email correspondence, and served as final approval on all partnerships with other student organizations.</p>
+        </div>
+        <div class="t-item">
+          <div class="role">Batch Representative</div>
+          <div class="org">PICE — SUSC, S.Y. 2022–2025</div>
+          <p>Designed publicity materials and produced video reels to drive student engagement; elected for three consecutive years to represent the Civil Engineering student body.</p>
+        </div>
+        <div class="t-item">
+          <div class="role">Private Mathematics Tutor</div>
+          <div class="org">High school level</div>
+          <p>Mentored students in advanced mathematics — the same instinct for breaking a hard concept into simple steps that shows up in how I document engineering projects.</p>
+        </div>
+        <div class="t-item">
+          <div class="role">Secretary of Student Leaders</div>
+          <div class="org">Inter-Varsity Christian Fellowship, S.Y. 2024–2025</div>
+          <p>Coordinated logistics and documentation for outreach programs, including essentials distribution at the City Jail.</p>
+        </div>
+        <div class="t-item">
+          <div class="role">College Representative, 76th Miss Silliman</div>
+          <div class="org">College of Engineering and Design, S.Y. 2022–2023</div>
+          <p>Represented the college on a university-wide platform; volunteered with the Miss Silliman Foundation on environmental education and mental health advocacy.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <hr class="rule">
+
+  <!-- EDUCATION -->
+  <div class="wrap">
+    <section id="education">
+      <div class="eyebrow"><span class="num">08</span><span>Education</span></div>
+      <h2 class="head">Credentials.</h2>
+      <div class="edu-list">
+        <div class="edu-row"><div class="school">Silliman University — BS Civil Engineering</div><div class="detail">Academic Class Honor, S.Y. 2021–2023</div></div>
+        <div class="edu-row"><div class="school">Silliman University — Senior High School</div><div class="detail">STEM Strand, With Honors</div></div>
+        <div class="edu-row"><div class="school">Kumon Institute of Education</div><div class="detail">Completer, Mathematics</div></div>
+      </div>
+    </section>
+  </div>
+
+  <hr class="rule">
+
+  <!-- CONTACT -->
+  <div class="wrap">
+    <section id="contact">
+      <div class="eyebrow"><span class="num">09</span><span>Contact</span></div>
+      <h2 class="head">Why work with me — and how to reach me.</h2>
+
+      <div class="why-grid">
+        <div class="why-item"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M4 12l6 6L20 6"/></svg>Engineering-grade documentation habits</div>
+        <div class="why-item"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M4 12l6 6L20 6"/></svg>Comfortable presenting to clients and boards</div>
+        <div class="why-item"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M4 12l6 6L20 6"/></svg>Can design the visuals, not just the backend</div>
+        <div class="why-item"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M4 12l6 6L20 6"/></svg>Track record of hitting fixed deadlines</div>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-info">
+          <p><span class="label">Location</span><br>Cagayan de Oro, Misamis Oriental</p>
+          <p><span class="label">Email</span><br>adsarahf@gmail.com</p>
+          <p><span class="label">Phone</span><br>0935 976 9398</p>
+        </div>
+        <form>
+          <div class="field"><label for="name">Name</label><input type="text" id="name" required></div>
+          <div class="field"><label for="email">Email</label><input type="email" id="email" required></div>
+          <div class="field"><label for="message">Message</label><textarea id="message" rows="4" required></textarea></div>
+          <button type="submit" class="btn solid">Send message</button>
+        </form>
+      </div>
+    </section>
+  </div>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; 2026 Ad Sarah Fortuito</span>
+    <span>Cagayan de Oro, Philippines</span>
+  </div>
+</footer>
+
+</body>
+</html>
